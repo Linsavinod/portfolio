@@ -26,8 +26,8 @@ import 'package:flutter/material.dart';
             spacing:16,
             runSpacing:12,
             children: skills
-            .map((skills) => Chip(
-              label: Text('skill'),
+            .map((skill) => Chip(
+              label: Text(skill),
               backgroundColor: Colors.blueGrey.shade700,
               labelStyle: const TextStyle(color: Colors.white),
               ))
