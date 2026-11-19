@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linsa Vinod - Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0f172a;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #0284c7;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: #f1f5f9;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+
+    .resume-wrapper {
+      max-width: 850px;
+      margin: 0 auto;
+      background: var(--bg);
+      padding: 3rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Print Controls */
+    .print-controls {
+      max-width: 850px;
+      margin: 0 auto 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-action {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-action.secondary {
+      background: #e2e8f0;
+      color: #334155;
+    }
+
+    /* Header */
+    .resume-header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .header-left h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+    }
+    .header-left .meta-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+    .header-right a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .header-right a:hover { text-decoration: underline; }
+
+    /* Section */
+    .r-section {
+      margin-bottom: 1.5rem;
+    }
+    .r-section-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Skills */
+    .skills-block {
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .skills-block strong { color: var(--primary); }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+      font-size: 0.92rem;
+    }
+    .edu-inst { font-weight: 700; color: var(--primary); }
+    .edu-sub { color: var(--muted); font-size: 0.85rem; }
+    .edu-score { font-weight: 700; color: var(--accent); text-align: right; }
+
+    /* Projects */
+    .proj-item {
+      margin-bottom: 1.25rem;
+    }
+    .proj-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.2rem;
+    }
+    .proj-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .proj-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .proj-tech {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .proj-tech strong { color: var(--text); }
+    .proj-desc {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    /* Positions & Achievements */
+    .bullet-list {
+      list-style-type: square;
+      padding-left: 1.25rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .bullet-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* References */
+    .ref-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      font-size: 0.88rem;
+    }
+    .ref-item strong { display: block; color: var(--primary); }
+    .ref-item span { color: var(--muted); display: block; }
+    .ref-item a { color: var(--accent); text-decoration: none; }
+
+    /* Print media */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .print-controls { display: none; }
+      .resume-wrapper { box-shadow: none; padding: 0; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-controls">
+    <a href="index.html" class="btn-action secondary">&larr; Back to Portfolio</a>
+    <button onclick="window.print()" class="btn-action">🖨️ Print / Save as PDF</button>
+  </div>
+
+  <div class="resume-wrapper">
+    <!-- Header -->
+    <header class="resume-header">
+      <div class="header-left">
+        <h1>LINSA VINOD</h1>
+        <div class="meta-sub">DOB &ndash; 19/05/2006 &bull; Kochi, Kerala</div>
+      </div>
+      <div class="header-right">
+        <div><a href="https://www.linkedin.com/in/linsavinod" target="_blank">LinkedIn</a> | <a href="https://github.com/Linsavinod" target="_blank">GitHub</a></div>
+        <div><a href="mailto:linsavinod.mec@gmail.com">linsavinod.mec@gmail.com</a></div>
+        <div>+91 9074245484</div>
+      </div>
+    </header>
+
+    <!-- Skills -->
+    <section class="r-section">
+      <div class="r-section-title">Skills &amp; Interests</div>
+      <div class="skills-block">
+        <div><strong>Technical Skills:</strong> Python, C++, Java, JavaScript, C, React, FastAPI, MySQL, PostgreSQL, Machine Learning (Scikit-learn), Data Structures and Algorithms, OOP, Operating Systems, DBMS, Computer Networks, RESTful APIs, Git, GitHub, Linux</div>
+        <div><strong>Soft Skills:</strong> Communication, Teamwork, Problem Solving, Critical Thinking, Leadership, Time Management</div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="r-section">
+      <div class="r-section-title">Education</div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-inst">Govt. Model Engineering College</div>
+          <div class="edu-sub">KTU, B.Tech in Computer Science Engineering</div>
+        </div>
+        <div class="edu-score">8.30 | 2028</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-inst">Holy Cross Higher Secondary School</div>
+          <div class="edu-sub">CBSE, 12th</div>
+        </div>
+        <div class="edu-score">98.5% | 2024</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-inst">Mary Matha Public School</div>
+          <div class="edu-sub">CBSE, 10th</div>
+        </div>
+        <div class="edu-score">96.6% | 2022</div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="r-section">
+      <div class="r-section-title">Projects</div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <div class="proj-title">NetGuard &bull; Full Stack Developer</div>
+          <div class="proj-meta">Team Size: 2 &bull; Ongoing</div>
+        </div>
+        <div class="proj-tech"><strong>Technologies Used:</strong> C, Python, Linux, Libpcap, Scikit-learn, Pandas, Bash, Wireshark</div>
+        <p class="proj-desc">Developing NetGuard, a network packet analyzer in C using libpcap that captures and parses Ethernet, ARP, IPv4, TCP and UDP traffic on Linux. Extracting per-flow features and applying a Scikit-learn Isolation Forest model for detection of anomalies such as port scans and SYN floods.</p>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <div class="proj-title">Network Anomaly Detection Dashboard &bull; Full-Stack Developer</div>
+          <div class="proj-meta">Team Size: 1 &bull; 1 Week</div>
+        </div>
+        <div class="proj-tech"><strong>Technologies Used:</strong> Python, Scikit-learn, FastAPI, React, PostgreSQL</div>
+        <p class="proj-desc">Developing the Network Anomaly Detection Dashboard, a full-stack system that uses a Scikit-learn model to classify network traffic as normal or anomalous, evaluating it with precision and recall. Building FastAPI REST endpoints and a React dashboard showing traffic statistics, anomaly alerts and detection history, with records stored in PostgreSQL.</p>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <div class="proj-title">Study Guide Builder &bull; Backend Developer</div>
+          <div class="proj-meta">Team Size: 4 &bull; 2 Months</div>
+        </div>
+        <div class="proj-tech"><strong>Technologies Used:</strong> Generative AI, JavaScript, HTML, CSS</div>
+        <p class="proj-desc">Developed an AI-powered study guide generator that transforms learning materials into concise, structured revision resources. Implemented backend functionality to process learning content and generate summaries highlighting key concepts. Designed a user-friendly interface to present generated study guides for efficient review and exam preparation.</p>
+      </div>
+    </section>
+
+    <!-- Key Positions -->
+    <section class="r-section">
+      <div class="r-section-title">Key Positions</div>
+      <ul class="bullet-list">
+        <li>Served as the <strong>Marketing Head at FOSS MEC</strong>, leading promotional campaigns and driving student engagement in technical and open-source events.</li>
+        <li>Took on the role of <strong>Event Head at .ISSUE! by Excel 2026</strong>, a debate platform that encourages thought-provoking discussions on pressing social issues and diverse perspectives.</li>
+        <li>Held the position of <strong>Outreach Lead at the National Student Data Corps (NSDC) MEC chapter</strong>, coordinating outreach activities and expanding event reach.</li>
+        <li>Worked as the <strong>Marketing Head of HFT Hackathon at Excel 2026</strong>, leading marketing initiatives and promoting an All-India-level hackathon.</li>
+        <li>Took on the role of <strong>Event Head for the Technical Talk at Excel 2025</strong>, overseeing event planning and coordinating with speakers and volunteers.</li>
+        <li>Served as the <strong>Innovation and Entrepreneurship Chair at Yuva MEC</strong>, supporting innovation initiatives and promoting entrepreneurship among students.</li>
+      </ul>
+    </section>
+
+    <!-- Achievements and Activities -->
+    <section class="r-section">
+      <div class="r-section-title">Achievements and Activities</div>
+      <ul class="bullet-list">
+        <li><strong>Volunteer of IndiaFOSS 2026</strong>, contributing to event operations and supporting the coordination of one of India's major free and open-source software community events.</li>
+        <li><strong>Volunteer of Devsprint 2025</strong>, a collaborative open-source event focused on real-world project contributions, mentor-guided sprint sessions, and fostering sustainable participation in the open-source community.</li>
+        <li><strong>Volunteer of TEDx MEC 2026</strong>, contributing to promotional campaigns, audience engagement, and marketing initiatives to enhance the event's reach and visibility.</li>
+        <li>Attended <strong>MEC Conf</strong> conducted by IEEE MEC.</li>
+        <li>Attended <strong>MAGIC 5.0</strong> conducted by IEEE MEC.</li>
+      </ul>
+    </section>
+
+    <!-- References -->
+    <section class="r-section">
+      <div class="r-section-title">References</div>
+      <div class="ref-list">
+        <div class="ref-item">
+          <strong>Prof. Dr. Jayachandran E S</strong>
+          <span>Principal, Govt. Model Engineering College, Kochi</span>
+          <span>Email ID: <a href="mailto:principal@mec.ac.in">principal@mec.ac.in</a></span>
+        </div>
+        <div class="ref-item">
+          <strong>Prof. Dr. Sindhu L</strong>
+          <span>HOD, Computer Science Engineering</span>
+          <span>Govt. Model Engineering College, Kochi</span>
+          <span>Email ID: <a href="mailto:sl@mec.ac.in">sl@mec.ac.in</a></span>
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1rem; text-align: center; font-size: 0.8rem; color: var(--muted);">
+      Govt. Model Engineering College, Kochi &bull; Portfolio: <a href="https://linsavinod.github.io/portfolio/" target="_blank" style="color:var(--accent);">linsavinod.github.io/portfolio</a>
+    </footer>
+  </div>
+</body>
+</html>

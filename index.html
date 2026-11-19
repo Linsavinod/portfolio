@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linsa Vinod | Computer Science Engineer & Systems Developer</title>
+  <meta name="description" content="Portfolio of Linsa Vinod - B.Tech Computer Science student at Govt. Model Engineering College. Passionate about Network Packet Analysis, Machine Learning, Anomaly Detection, and Full-Stack Engineering." />
+  <meta name="keywords" content="Linsa Vinod, Portfolio, Computer Science, Govt Model Engineering College, MEC, NetGuard, Network Anomaly Detection, Machine Learning, Python, C++, React, FastAPI" />
+  <meta name="author" content="Linsa Vinod" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Linsa Vinod | Portfolio" />
+  <meta property="og:description" content="Computer Science Engineer building low-level network analyzers, ML systems, and full-stack applications." />
+  <meta property="og:url" content="https://linsavinod.github.io/portfolio/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='900' fill='%2306b6d4'>LV</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background Canvas for Interactive Network Simulation -->
+  <canvas id="network-canvas"></canvas>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo">
+        <span class="logo-symbol">&lt;LV/&gt;</span>
+        <span class="logo-text">Linsa Vinod</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#leadership" class="nav-link">Leadership</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle Light/Dark Theme">
+          <i data-lucide="moon" class="dark-icon"></i>
+          <i data-lucide="sun" class="light-icon"></i>
+        </button>
+
+        <!-- Resume Modal Trigger -->
+        <a href="#resume-modal" class="btn btn-outline btn-sm resume-btn">
+          <i data-lucide="file-text"></i>
+          <span>Resume</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-toggle" class="icon-btn mobile-only" aria-label="Toggle mobile menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>Open to Opportunities &bull; KTU B.Tech CSE '28</span>
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Linsa Vinod</span>
+        </h1>
+
+        <p class="hero-tagline">
+          Computer Science Engineer specializing in <span class="highlight">Network Systems</span>, 
+          <span class="highlight">Machine Learning & Anomaly Detection</span>, and 
+          <span class="highlight">Full-Stack Architecture</span>.
+        </p>
+
+        <p class="hero-bio">
+          Undergrad at <strong>Govt. Model Engineering College (MEC), Kochi</strong>. 
+          Bridging low-level packet capture in C/Linux with intelligent Scikit-learn detection models and scalable web interfaces.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn btn-primary">
+            <i data-lucide="folder-git-2"></i>
+            <span>View Projects</span>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i data-lucide="mail"></i>
+            <span>Get in Touch</span>
+          </a>
+          <a href="resume.html" target="_blank" class="btn btn-outline">
+            <i data-lucide="external-link"></i>
+            <span>View Full CV</span>
+          </a>
+        </div>
+
+        <!-- Metric Cards -->
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <div class="metric-val">8.30</div>
+            <div class="metric-lbl">CGPA @ MEC Kochi</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">98.5%</div>
+            <div class="metric-lbl">CBSE 12th Academic Rank</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">3+</div>
+            <div class="metric-lbl">Flagship Systems & AI Apps</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">6+</div>
+            <div class="metric-lbl">Leadership & Organizing Roles</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Terminal Preview -->
+      <div class="hero-visual">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="terminal-title">linsa@mec-linux: ~/projects/netguard</div>
+            <div class="terminal-badge">LIVE DEMO</div>
+          </div>
+          <div class="terminal-body" id="terminal-output">
+            <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">./netguard --interface eth0 --detect-anomalies</span></div>
+            <div class="t-line t-dim">[+] Initializing libpcap raw socket on eth0...</div>
+            <div class="t-line t-dim">[+] Packet filters active: ARP, IPv4, TCP, UDP, ICMP</div>
+            <div class="t-line t-dim">[+] Loading Scikit-learn Isolation Forest model (contamination=0.01)...</div>
+            <div class="t-line t-info">[INFO] Extracting per-flow window metrics: SYN_ratio, byte_rate, entropy</div>
+            <div class="t-line t-success">[STREAM] 192.168.1.45:443 &lt;-&gt; 10.0.0.12:52134 [TCP-ESTABLISHED] Normal</div>
+            <div class="t-line t-warn">[ALERT] Port scan pattern flagged from 172.16.4.88 (Target Ports: 1-1024)</div>
+            <div class="t-line t-danger">[CRITICAL] SYN Flood detected! Isolation Forest Anomaly Score: -0.841 [FLAGGED]</div>
+            <div class="t-line t-accent">[DB] Event logged to PostgreSQL & FastAPI REST stream triggered &bull;&bull;&bull;</div>
+            <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd cursor-blink">_</span></div>
+          </div>
+          <div class="terminal-footer">
+            <button class="t-btn" id="btn-replay-terminal"><i data-lucide="play"></i> Run Simulation</button>
+            <span class="t-status"><i data-lucide="shield-check"></i> Libpcap + ML Engine Online</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <div class="section-tag">BACKGROUND & FOCUS</div>
+        <h2 class="section-title">Engineering With Purpose & Precision</h2>
+        <p class="section-subtitle">A glimpse into my technical journey, passion for secure systems, and community leadership.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card main-bio">
+          <div class="bio-header">
+            <div class="avatar-box">
+              <span class="avatar-initials">LV</span>
+            </div>
+            <div>
+              <h3>Linsa Vinod</h3>
+              <p class="text-muted">B.Tech Computer Science & Engineering (2024 - 2028)</p>
+              <div class="location-tag">
+                <i data-lucide="map-pin"></i> Kochi, Kerala, India &bull; Govt. Model Engineering College
+              </div>
+            </div>
+          </div>
+
+          <div class="bio-text">
+            <p>
+              I am an engineering undergraduate driven by deep curiosity about how computer systems communicate, scale, and protect themselves against evolving threats. 
+            </p>
+            <p>
+              My work spans from the kernel and socket level—capturing raw packets using <strong>C</strong> and <strong>libpcap</strong> on Linux—to higher-order data pipelines utilizing <strong>Python, Scikit-learn, and FastAPI</strong>, all the way to intuitive user interfaces in <strong>React</strong>.
+            </p>
+            <p>
+              Beyond coding, I actively lead student initiatives: from heading marketing campaigns for open-source software at <strong>FOSS MEC</strong> to coordinating debate platforms and nationwide hackathons like <strong>Excel 2026</strong>.
+            </p>
+          </div>
+
+          <div class="contact-quick-actions">
+            <button class="copy-pill" data-copy="linsavinod.mec@gmail.com">
+              <i data-lucide="copy"></i>
+              <span>linsavinod.mec@gmail.com</span>
+            </button>
+            <button class="copy-pill" data-copy="+919074245484">
+              <i data-lucide="phone"></i>
+              <span>+91 9074245484</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="about-pillars">
+          <div class="pillar-card">
+            <div class="pillar-icon"><i data-lucide="cpu"></i></div>
+            <h4>Low-Level Systems & Networking</h4>
+            <p>Hands-on socket programming in C, libpcap packet inspection, Linux internals, protocol dissection (TCP/UDP, IPv4, ARP), and Bash scripting.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon"><i data-lucide="brain-circuit"></i></div>
+            <h4>Applied Machine Learning</h4>
+            <p>Developing anomaly detection systems using Scikit-learn (Isolation Forest, statistical classifications) and generative AI for intelligent automation.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon"><i data-lucide="layers"></i></div>
+            <h4>Full-Stack & Cloud Architecture</h4>
+            <p>Architecting modular RESTful APIs with FastAPI, building responsive user dashboards with React, and managing relational databases with PostgreSQL & MySQL.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon"><i data-lucide="users"></i></div>
+            <h4>Leadership & Community Building</h4>
+            <p>Serving as Marketing Head, Outreach Lead, and Event Head across FOSS MEC, Excel, Yuva, and NSDC; driving technical culture and hackathons.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <div class="section-tag">INNOVATION & CRAFT</div>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Real-world systems, anomaly detection engines, and AI applications built with rigor.</p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="systems">Systems & Security</button>
+        <button class="filter-btn" data-filter="ml">Machine Learning</button>
+        <button class="filter-btn" data-filter="fullstack">Full Stack & AI</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- PROJECT 1: NetGuard -->
+        <article class="project-card" data-category="systems ml">
+          <div class="project-banner systems-gradient">
+            <div class="project-badge">Ongoing &bull; Team Size: 2</div>
+            <div class="project-icon-box"><i data-lucide="shield-alert"></i></div>
+          </div>
+          <div class="project-body">
+            <div class="project-role-tag">Full Stack & Systems Developer</div>
+            <h3 class="project-name">NetGuard</h3>
+            <p class="project-summary">
+              A high-performance network packet analyzer in C utilizing libpcap to capture and parse raw Ethernet, ARP, IPv4, TCP, and UDP traffic on Linux. Computes per-flow statistical features and deploys a Scikit-learn Isolation Forest model to detect stealth port scans and SYN flood anomalies in real-time.
+            </p>
+            <div class="project-features">
+              <div class="feat-item"><i data-lucide="check"></i> Deep packet dissection via C and libpcap</div>
+              <div class="feat-item"><i data-lucide="check"></i> Flow feature extraction (Pandas, Bash scripts)</div>
+              <div class="feat-item"><i data-lucide="check"></i> Unsupervised Isolation Forest anomaly scoring</div>
+            </div>
+            <div class="tech-tags">
+              <span class="tag">C</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Libpcap</span>
+              <span class="tag">Python</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Wireshark</span>
+              <span class="tag">Bash</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Linsavinod/NetSheild" target="_blank" class="btn btn-sm btn-outline">
+              <i data-lucide="github"></i> Code Repository
+            </a>
+            <button class="btn btn-sm btn-ghost" onclick="openProjectModal('netguard')">
+              <i data-lucide="info"></i> Details
+            </button>
+          </div>
+        </article>
+
+        <!-- PROJECT 2: Network Anomaly Detection Dashboard -->
+        <article class="project-card" data-category="systems ml fullstack">
+          <div class="project-banner ml-gradient">
+            <div class="project-badge">Completed &bull; Solo Project</div>
+            <div class="project-icon-box"><i data-lucide="activity"></i></div>
+          </div>
+          <div class="project-body">
+            <div class="project-role-tag">Full-Stack Developer (1 Week Sprint)</div>
+            <h3 class="project-name">Network Anomaly Detection Dashboard</h3>
+            <p class="project-summary">
+              An end-to-end full-stack network intelligence platform. Leverages a trained Scikit-learn classifier to predict traffic abnormalities, exposed via high-throughput FastAPI REST endpoints and displayed on an interactive React dashboard with PostgreSQL audit history.
+            </p>
+            <div class="project-features">
+              <div class="feat-item"><i data-lucide="check"></i> Evaluated with precision, recall, and ROC analysis</div>
+              <div class="feat-item"><i data-lucide="check"></i> FastAPI REST architecture with telemetry streaming</div>
+              <div class="feat-item"><i data-lucide="check"></i> React dashboard with alert triggers & PostgreSQL persistence</div>
+            </div>
+            <div class="tech-tags">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">React</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">REST APIs</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Linsavinod" target="_blank" class="btn btn-sm btn-outline">
+              <i data-lucide="github"></i> GitHub Profile
+            </a>
+            <button class="btn btn-sm btn-ghost" onclick="openProjectModal('dashboard')">
+              <i data-lucide="info"></i> Details
+            </button>
+          </div>
+        </article>
+
+        <!-- PROJECT 3: Study Guide Builder -->
+        <article class="project-card" data-category="fullstack">
+          <div class="project-banner ai-gradient">
+            <div class="project-badge">2 Months &bull; Team Size: 4</div>
+            <div class="project-icon-box"><i data-lucide="sparkles"></i></div>
+          </div>
+          <div class="project-body">
+            <div class="project-role-tag">Backend Developer</div>
+            <h3 class="project-name">Study Guide Builder</h3>
+            <p class="project-summary">
+              An AI-powered academic summarization platform that ingests unstructured learning materials and compiles concise, high-retention revision guides. Engineered the backend parsing logic and integrated Generative AI pipelines with an intuitive review frontend.
+            </p>
+            <div class="project-features">
+              <div class="feat-item"><i data-lucide="check"></i> Generative AI summarization & key concept extraction</div>
+              <div class="feat-item"><i data-lucide="check"></i> Backend parsing pipeline for document transformation</div>
+              <div class="feat-item"><i data-lucide="check"></i> Distraction-free exam preparation study UI</div>
+            </div>
+            <div class="tech-tags">
+              <span class="tag">Generative AI</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Backend APIs</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Linsavinod" target="_blank" class="btn btn-sm btn-outline">
+              <i data-lucide="github"></i> GitHub
+            </a>
+            <button class="btn btn-sm btn-ghost" onclick="openProjectModal('studyguide')">
+              <i data-lucide="info"></i> Details
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX SECTION -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <div class="section-tag">COMPETENCIES</div>
+        <h2 class="section-title">Technical Skills & Tooling</h2>
+        <p class="section-subtitle">Proficiencies across low-level programming, machine learning, databases, and collaboration.</p>
+      </div>
+
+      <div class="skills-container">
+        <!-- Category 1 -->
+        <div class="skill-group-card">
+          <div class="group-header">
+            <i data-lucide="code-2" class="group-icon"></i>
+            <h3>Languages</h3>
+          </div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="name">Python</span><span class="level">Advanced</span></div>
+            <div class="skill-pill"><span class="name">C</span><span class="level">Systems</span></div>
+            <div class="skill-pill"><span class="name">C++</span><span class="level">Core</span></div>
+            <div class="skill-pill"><span class="name">Java</span><span class="level">OOP</span></div>
+            <div class="skill-pill"><span class="name">JavaScript</span><span class="level">ES6+</span></div>
+            <div class="skill-pill"><span class="name">Bash</span><span class="level">Scripting</span></div>
+            <div class="skill-pill"><span class="name">SQL</span><span class="level">Relational</span></div>
+          </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="skill-group-card">
+          <div class="group-header">
+            <i data-lucide="network" class="group-icon"></i>
+            <h3>Systems & Networking</h3>
+          </div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="name">Libpcap</span><span class="level">Packet Capture</span></div>
+            <div class="skill-pill"><span class="name">Linux (CLI/Kernel)</span><span class="level">Environment</span></div>
+            <div class="skill-pill"><span class="name">Wireshark</span><span class="level">Analysis</span></div>
+            <div class="skill-pill"><span class="name">TCP / UDP / IPv4 / ARP</span><span class="level">Protocols</span></div>
+            <div class="skill-pill"><span class="name">Computer Networks</span><span class="level">Foundations</span></div>
+            <div class="skill-pill"><span class="name">Operating Systems</span><span class="level">Core CS</span></div>
+          </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="skill-group-card">
+          <div class="group-header">
+            <i data-lucide="cpu" class="group-icon"></i>
+            <h3>Machine Learning & Web</h3>
+          </div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="name">Scikit-learn</span><span class="level">Isolation Forest</span></div>
+            <div class="skill-pill"><span class="name">Pandas</span><span class="level">Data wrangling</span></div>
+            <div class="skill-pill"><span class="name">FastAPI</span><span class="level">Backend REST</span></div>
+            <div class="skill-pill"><span class="name">React</span><span class="level">Frontend</span></div>
+            <div class="skill-pill"><span class="name">Generative AI</span><span class="level">LLM integration</span></div>
+            <div class="skill-pill"><span class="name">HTML5 & CSS3</span><span class="level">Modern UI</span></div>
+          </div>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="skill-group-card">
+          <div class="group-header">
+            <i data-lucide="database" class="group-icon"></i>
+            <h3>Databases & Practices</h3>
+          </div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="name">PostgreSQL</span><span class="level">RDBMS</span></div>
+            <div class="skill-pill"><span class="name">MySQL</span><span class="level">RDBMS</span></div>
+            <div class="skill-pill"><span class="name">Git & GitHub</span><span class="level">VCS & CI/CD</span></div>
+            <div class="skill-pill"><span class="name">Data Structures & Algo</span><span class="level">DSA</span></div>
+            <div class="skill-pill"><span class="name">OOP & DBMS</span><span class="level">Architecture</span></div>
+            <div class="skill-pill"><span class="name">RESTful APIs</span><span class="level">Contract design</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soft Skills Row -->
+      <div class="soft-skills-bar">
+        <span class="bar-title"><i data-lucide="check-circle-2"></i> Professional Competencies:</span>
+        <span class="soft-pill">Technical Communication</span>
+        <span class="soft-pill">Team Leadership</span>
+        <span class="soft-pill">Complex Problem Solving</span>
+        <span class="soft-pill">Critical Thinking</span>
+        <span class="soft-pill">Time Management</span>
+        <span class="soft-pill">Cross-Functional Coordination</span>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP & POSITIONS SECTION -->
+    <section id="leadership" class="section">
+      <div class="section-header">
+        <div class="section-tag">IMPACT & LEADERSHIP</div>
+        <h2 class="section-title">Key Positions & Responsibilities</h2>
+        <p class="section-subtitle">Driving student communities, organizing major technical hackathons, and fostering innovation.</p>
+      </div>
+
+      <div class="timeline">
+        <!-- Item 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="role-badge">Leadership</span>
+              <span class="timeline-date">FOSS MEC</span>
+            </div>
+            <h3 class="role-title">Marketing Head</h3>
+            <p class="role-org">Free and Open Source Software (FOSS) Cell, Govt. Model Engineering College</p>
+            <p class="role-desc">
+              Spearheading promotional campaigns and marketing strategies that drive massive student participation in open-source hackathons, workshops, and collaborative coding sprints across the campus.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="role-badge">Event Leadership</span>
+              <span class="timeline-date">Excel 2026</span>
+            </div>
+            <h3 class="role-title">Event Head &bull; .ISSUE!</h3>
+            <p class="role-org">Excel 2026 (National Techno-Managerial Fest of MEC)</p>
+            <p class="role-desc">
+              Curated and directed <strong>.ISSUE!</strong>, a high-stakes debate and discourse platform promoting critical analysis of pressing social issues, technological ethics, and policy perspectives among national participants.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="role-badge">Community Outreach</span>
+              <span class="timeline-date">NSDC MEC</span>
+            </div>
+            <h3 class="role-title">Outreach Lead</h3>
+            <p class="role-org">National Student Data Corps (NSDC) MEC Chapter</p>
+            <p class="role-desc">
+              Coordinated chapter outreach initiatives, fostering cross-institutional partnerships and expanding student access to foundational data science curriculums, webinars, and hands-on ML workshops.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="role-badge">Marketing & Hackathon</span>
+              <span class="timeline-date">Excel 2026</span>
+            </div>
+            <h3 class="role-title">Marketing Head &bull; HFT Hackathon</h3>
+            <p class="role-org">High-Frequency Trading Hackathon, Excel 2026</p>
+            <p class="role-desc">
+              Led marketing initiatives and branding for an All-India level High-Frequency Trading hackathon, engaging algorithmic developers, quant enthusiasts, and top engineering institutions across the country.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="role-badge">Event Coordination</span>
+              <span class="timeline-date">Excel 2025</span>
+            </div>
+            <h3 class="role-title">Event Head &bull; Technical Talk</h3>
+            <p class="role-org">Excel 2025</p>
+            <p class="role-desc">
+              Orchestrated event planning, speaker curation, and volunteer management for key technical talks featuring industry leaders and academic pioneers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="role-badge">Entrepreneurship</span>
+              <span class="timeline-date">Yuva MEC</span>
+            </div>
+            <h3 class="role-title">Innovation and Entrepreneurship Chair</h3>
+            <p class="role-org">Yuva MEC (Young Indians / CII)</p>
+            <p class="role-desc">
+              Promoting an entrepreneurial mindset among collegiate engineers, organizing ideation sessions, prototype reviews, and facilitating mentorship from industry veterans.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES & VOLUNTEERING -->
+    <section id="activities" class="section">
+      <div class="section-header">
+        <div class="section-tag">COMMUNITY ENGAGEMENT</div>
+        <h2 class="section-title">Volunteering & Conferences</h2>
+        <p class="section-subtitle">Active participant in nationwide open-source initiatives and technical symposiums.</p>
+      </div>
+
+      <div class="activities-grid">
+        <div class="act-card">
+          <div class="act-icon"><i data-lucide="heart-handshake"></i></div>
+          <div class="act-info">
+            <span class="act-badge">Conference Volunteer</span>
+            <h4>IndiaFOSS 2026</h4>
+            <p>Contributed to event logistics, attendee coordination, and on-ground operations for one of India's largest and most vibrant Free and Open Source Software celebrations.</p>
+          </div>
+        </div>
+
+        <div class="act-card">
+          <div class="act-icon"><i data-lucide="git-pull-request"></i></div>
+          <div class="act-info">
+            <span class="act-badge">Open-Source Sprint</span>
+            <h4>Devsprint 2025</h4>
+            <p>Volunteered in facilitating mentor-guided sprint sessions, helping contributors make meaningful pull requests to real-world open-source repositories.</p>
+          </div>
+        </div>
+
+        <div class="act-card">
+          <div class="act-icon"><i data-lucide="mic"></i></div>
+          <div class="act-info">
+            <span class="act-badge">Event Engagement</span>
+            <h4>TEDx MEC 2026</h4>
+            <p>Contributed to marketing, audience engagement campaigns, and event day execution to enhance reach and guest experience.</p>
+          </div>
+        </div>
+
+        <div class="act-card">
+          <div class="act-icon"><i data-lucide="award"></i></div>
+          <div class="act-info">
+            <span class="act-badge">Academic Conferences</span>
+            <h4>IEEE MEC Conferences</h4>
+            <p>Actively attended <strong>MEC Conf</strong> and <strong>MAGIC 5.0</strong> conducted by IEEE MEC, exploring emerging research in computational systems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION & REFERENCES -->
+    <section id="education" class="section">
+      <div class="section-header">
+        <div class="section-tag">ACADEMIC EXCELLENCE</div>
+        <h2 class="section-title">Education & Academic References</h2>
+        <p class="section-subtitle">Strong academic foundation paired with endorsements from college leadership.</p>
+      </div>
+
+      <div class="education-grid">
+        <!-- MEC -->
+        <div class="edu-card featured">
+          <div class="edu-header">
+            <div class="edu-year">2024 &mdash; 2028</div>
+            <div class="edu-score">CGPA 8.30</div>
+          </div>
+          <h3 class="edu-degree">B.Tech in Computer Science Engineering</h3>
+          <p class="edu-school">Govt. Model Engineering College, Kochi (KTU)</p>
+          <p class="edu-details">
+            Rigorous curriculum covering Computer Networks, Operating Systems, Database Management Systems, Data Structures & Algorithms, and Machine Learning.
+          </p>
+        </div>
+
+        <!-- 12th -->
+        <div class="edu-card">
+          <div class="edu-header">
+            <div class="edu-year">2024</div>
+            <div class="edu-score highlight">98.5%</div>
+          </div>
+          <h3 class="edu-degree">CBSE Class 12th (Senior Secondary)</h3>
+          <p class="edu-school">Holy Cross Higher Secondary School</p>
+          <p class="edu-details">
+            Exceptional academic performance with top-tier percentile in Physics, Chemistry, Mathematics, and Computer Science.
+          </p>
+        </div>
+
+        <!-- 10th -->
+        <div class="edu-card">
+          <div class="edu-header">
+            <div class="edu-year">2022</div>
+            <div class="edu-score highlight">96.6%</div>
+          </div>
+          <h3 class="edu-degree">CBSE Class 10th (Secondary)</h3>
+          <p class="edu-school">Mary Matha Public School</p>
+          <p class="edu-details">
+            Distinction score showcasing sustained academic discipline and analytical fundamentals.
+          </p>
+        </div>
+      </div>
+
+      <!-- Academic Endorsements -->
+      <div class="references-wrapper">
+        <h3 class="ref-title"><i data-lucide="shield-check"></i> Academic References</h3>
+        <div class="references-grid">
+          <div class="ref-card">
+            <div class="ref-icon"><i data-lucide="user-check"></i></div>
+            <div class="ref-body">
+              <h4>Prof. Dr. Jayachandran E S</h4>
+              <p class="ref-desig">Principal</p>
+              <p class="ref-org">Govt. Model Engineering College, Kochi</p>
+              <a href="mailto:principal@mec.ac.in" class="ref-link">
+                <i data-lucide="mail"></i> principal@mec.ac.in
+              </a>
+            </div>
+          </div>
+
+          <div class="ref-card">
+            <div class="ref-icon"><i data-lucide="user-check"></i></div>
+            <div class="ref-body">
+              <h4>Prof. Dr. Sindhu L</h4>
+              <p class="ref-desig">Head of Department, Computer Science & Engineering</p>
+              <p class="ref-org">Govt. Model Engineering College, Kochi</p>
+              <a href="mailto:sl@mec.ac.in" class="ref-link">
+                <i data-lucide="mail"></i> sl@mec.ac.in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="section-header">
+        <div class="section-tag">CONNECT</div>
+        <h2 class="section-title">Let's Build Something Together</h2>
+        <p class="section-subtitle">Interested in collaborating on systems, security, ML projects, or internship opportunities? Reach out!</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Cards -->
+        <div class="contact-info-panel">
+          <div class="contact-item-card">
+            <div class="c-icon"><i data-lucide="mail"></i></div>
+            <div>
+              <div class="c-label">Email Address</div>
+              <a href="mailto:linsavinod.mec@gmail.com" class="c-val">linsavinod.mec@gmail.com</a>
+              <button class="copy-small-btn" data-copy="linsavinod.mec@gmail.com"><i data-lucide="copy"></i> Copy</button>
+            </div>
+          </div>
+
+          <div class="contact-item-card">
+            <div class="c-icon"><i data-lucide="phone"></i></div>
+            <div>
+              <div class="c-label">Phone &bull; WhatsApp</div>
+              <a href="tel:+919074245484" class="c-val">+91 9074245484</a>
+              <button class="copy-small-btn" data-copy="+919074245484"><i data-lucide="copy"></i> Copy</button>
+            </div>
+          </div>
+
+          <div class="contact-item-card">
+            <div class="c-icon"><i data-lucide="map-pin"></i></div>
+            <div>
+              <div class="c-label">Location</div>
+              <div class="c-val">Kochi, Kerala, India (MEC Campus)</div>
+            </div>
+          </div>
+
+          <div class="contact-item-card">
+            <div class="c-icon"><i data-lucide="github"></i></div>
+            <div>
+              <div class="c-label">GitHub</div>
+              <a href="https://github.com/Linsavinod" target="_blank" class="c-val">github.com/Linsavinod</a>
+            </div>
+          </div>
+
+          <div class="contact-item-card">
+            <div class="c-icon"><i data-lucide="linkedin"></i></div>
+            <div>
+              <div class="c-label">LinkedIn</div>
+              <a href="https://www.linkedin.com/in/linsavinod" target="_blank" class="c-val">linkedin.com/in/linsavinod</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Direct Message Form -->
+        <div class="contact-form-panel">
+          <form id="contact-form" class="styled-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe" />
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required placeholder="john@example.com" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required placeholder="Opportunity / Project Collaboration" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Hi Linsa, I saw your work on NetGuard and would love to discuss..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <i data-lucide="send"></i>
+              <span>Send Message</span>
+            </button>
+            <div id="form-feedback" class="form-feedback"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-symbol">&lt;LV/&gt;</span>
+        <span class="footer-name">Linsa Vinod</span>
+        <p class="footer-sub">Govt. Model Engineering College &bull; B.Tech CSE Class of 2028</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">Top</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#leadership">Leadership</a>
+        <a href="resume.html" target="_blank">Resume</a>
+      </div>
+
+      <div class="footer-copy">
+        Designed & Built by <strong>Linsa Vinod</strong> &bull; Hosted on GitHub Pages
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT DEEP-DIVE MODAL -->
+  <div id="project-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog">
+      <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+      <div id="modal-content" class="modal-content-box">
+        <!-- Dynamically populated by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUME PREVIEW MODAL -->
+  <div id="resume-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog resume-modal-dialog">
+      <button class="modal-close" onclick="closeResumeModal()">&times;</button>
+      <div class="resume-modal-header">
+        <h3>Linsa Vinod &mdash; Curriculum Vitae</h3>
+        <div class="resume-actions">
+          <a href="resume.html" target="_blank" class="btn btn-sm btn-outline"><i data-lucide="external-link"></i> New Tab</a>
+          <button class="btn btn-sm btn-primary" onclick="window.print()"><i data-lucide="printer"></i> Print / Save PDF</button>
+        </div>
+      </div>
+      <div class="resume-frame-container">
+        <iframe src="resume.html" title="Linsa Vinod Resume" class="resume-iframe"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
